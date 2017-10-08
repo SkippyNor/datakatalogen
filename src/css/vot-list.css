@@ -1,0 +1,34 @@
+.vot-list {
+  column-width: 20rem;
+  column-gap: 6.4rem;
+  margin: 0 0 6.4rem 0;
+}
+
+.vot-list__group {
+  margin: 0 0 3.2rem 0;
+}
+
+.vot-list__group-title {
+  margin: 0 0 1.6rem 0;
+}
+
+.vot-list__group-list {
+  
+}
+
+.vot-list__group-listitem {
+  line-height: 1.3;
+  margin: 0 0 0.6rem 0;
+}
+
+.vot-list__link {
+  display: block;
+}
+
+.vot-list__name {
+  margin-right: 0.4rem;
+}
+
+.vot-list__id {
+  opacity: 0.5;
+}

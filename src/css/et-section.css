@@ -1,0 +1,76 @@
+.et-section {
+  margin: 0 0 6.4rem 0; 
+}
+
+.et-section__title {
+
+}
+
+.et-section__list {
+
+}
+
+.et-section__listitem {
+  margin: 0 0 3.2rem 0;
+}
+
+.et-section__header {
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 1.8rem;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  margin-left: -2rem;
+  padding-left: 2rem;
+  transition: color 0.2s;
+}
+
+.et-section__header:hover {
+  background-image: url('../gfx/toggle_down.svg');
+  color: #58B02C;
+}
+
+.et-section__header--expanded {
+  background-image: url('../gfx/toggle_up.svg');
+}
+
+.et-section__header--expanded:hover {
+  background-image: url('../gfx/toggle_up.svg');
+  color: #ED666C;
+}
+
+.et-section__label {
+  display: block;
+}
+
+.et-section__toggle {
+  display: none;
+}
+
+.et-section__name {
+  margin-right: 0.4rem;
+}
+
+.et-section__id {
+  opacity: 0.5;
+}
+
+.et-section__statistics {
+  margin-left: 0.8rem;
+}
+
+.et-section__statistics-link {
+  padding-right: 2.4rem;
+}
+
+.et-section__statistics-link:hover {
+  background-image: url('../gfx/earth.svg');
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  background-size: 1.8rem;
+}
+
+.et-section__datatype {
+  line-height: 1;
+  margin: 0 0 0 0;
+}

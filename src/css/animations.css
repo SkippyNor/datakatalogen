@@ -1,0 +1,9 @@
+@keyframes expand {
+  from {
+    max-height: 0; 
+  }
+
+  to {
+    max-height: 100rem;
+  }
+}

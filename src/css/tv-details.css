@@ -1,0 +1,36 @@
+.tv-details {
+  animation-duration: 1s;
+  animation-name: expand;
+  border-left: 0.2rem solid #ececec;
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+  overflow: hidden;
+  padding: 0.4rem 0 0.4rem 1.2rem;
+}
+
+.tv-details > :last-child {
+  margin-bottom: 0;
+}
+
+.tv-details__description {
+  margin-bottom: 1.2rem;
+}
+
+.tv-details__dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.tv-details__dt {
+  margin: 0 0.8rem 0.4rem 0;
+}
+
+.tv-details__dd {
+  margin: 0 0 0.4rem 0;
+}
+
+.tv-details__id {
+  margin-left: 0.4rem;
+  opacity: 0.5;
+}

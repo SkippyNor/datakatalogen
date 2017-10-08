@@ -1,0 +1,21 @@
+.vot-info {
+  margin: 0 0 6.4rem 0;
+}
+
+.vot-info__title {
+  
+}
+
+.vot-info__dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.vot-info__dt {
+  margin: 0 0.8rem 0.4rem 0;
+}
+
+.vot-info__dd {
+  margin: 0 0 0.4rem 0;
+}

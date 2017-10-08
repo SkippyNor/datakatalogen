@@ -1,0 +1,61 @@
+.vot-actions {
+
+  display: flex;
+  margin: 0 0 4.8rem 0;
+}
+
+@media (min-width: 48rem) {
+  .vot-actions {
+    margin-bottom: 6.4rem;
+  }
+}
+
+.vot-actions__action:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.vot-actions__statistics-button {
+  background-color: #fff;
+  background-image: url('../gfx/statistics.svg');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 1.8rem;
+  border: 0;
+  padding: 0 0 0 2.4rem;
+}
+
+.vot-actions__statistics-title {
+  border-bottom: 0.1rem dotted rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.vot-actions__statistics-button:hover > .vot-actions__statistics-title {
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+.vot-actions__details-label {
+  background-image: url('../gfx/toggle_down.svg');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 1.8rem;
+  display: block;
+  padding-left: 2rem;
+}
+
+.vot-actions__details-label--expanded {
+  background-image: url('../gfx/toggle_up.svg');
+}
+
+.vot-actions__details-toggle {
+  display: none;
+}
+
+.vot-actions__details-title {
+  border-bottom: 0.1rem dotted rgba(0, 0, 0, 0.7);
+}
+
+.vot-actions__details-label:hover > .vot-actions__details-title {
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
+}

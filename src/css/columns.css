@@ -1,0 +1,23 @@
+.columns {
+   max-width: 73.6rem; 
+}
+
+.columns__column1 {
+  max-width: 33.6rem;
+}
+
+.columns__column2 {
+  max-width: 33.6rem;
+}
+
+@media (min-width: 40rem) {
+  .columns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .columns__column1,
+  .columns__column2 {
+    width: calc(50% - 3.2rem);
+  }
+}
