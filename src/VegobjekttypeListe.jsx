@@ -2,11 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import VegobjekttypeListeGroup from './VegobjekttypeListeGroup';
+import Search from './Search';
 
 
-function VegobjekttypeListe ({vegobjekttyper, sort = 'navn'}) {
+function VegobjekttypeListe ({vegobjekttyper, history, sort = 'navn'}) {
 
     vegobjekttyper = JSON.parse(JSON.stringify(vegobjekttyper));
+
+    document.title = 'Nasjonal vegdatabank Datakatalog';
 
     let isSortedByName = false;
 
@@ -47,18 +50,32 @@ function VegobjekttypeListe ({vegobjekttyper, sort = 'navn'}) {
     })
 
     return [
-        <section key="xcx" style={{marginBottom: '6.4rem'}}>
-            {isSortedByName ? (
-                <ul>
-                    <li>Navn</li>
-                    <li><Link to={{search: '?sort=nummer'}}>Nummer</Link></li>
+
+        <section className="layout__search-container" key="layout__search-container">
+            <Search vegobjekttyper={vegobjekttyper} history={history}/>
+
+            <section key="xcx" className="vot-sort">
+                <p className="vot-sort__label">
+                    Sorter listen etter
+                </p>
+                <ul className="vot-sort__list">
+                    <li className="vot-sort__listitem">
+                        <Link 
+                            className={isSortedByName ? 'vot-sort__link vot-sort__link--active' : 'vot-sort__link'}
+                            to="/">
+                            Navn
+                        </Link>
+                    </li>
+                    <li className="vot-sort__listitem">
+                        <Link 
+                            className={!isSortedByName ? 'vot-sort__link vot-sort__link--active' : 'vot-sort__link'}
+                            to={{search: '?sort=nummer'}}>
+                            Nummer
+                        </Link>
+                    </li>
                 </ul>
-            ) : (
-                <ul>
-                    <li><Link to={{search: '?sort=navn'}}>Navn</Link></li>
-                    <li>Nummer</li>
-                </ul>
-            )}
+            </section>
+
         </section>,
 
         <section key="vot-list" className="vot-list">

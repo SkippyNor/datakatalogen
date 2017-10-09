@@ -1,0 +1,56 @@
+.vot-sort {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 33.6rem;
+  margin: 0 0 0 0;
+}
+
+.vot-sort__label {
+  line-height: 1.5;
+  margin: 0 2.4rem 0 0;
+}
+
+.vot-sort__list {
+  display: flex;
+  line-height: 1.5;
+}
+
+.vot-sort__listitem:not(:last-child) {
+  margin: 0 2.4rem 0 0;
+}
+
+.vot-sort__link {
+  background-image: url('../gfx/radio_unchecked.svg');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 1.6rem;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+  padding-left: 2.4rem;
+  transition: color 0.2s;
+}
+
+.vot-sort__link:hover {
+  background-image: url('../gfx/radio_checked.svg');
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.vot-sort__link--active {
+  background-image: url('../gfx/radio_checked.svg');
+  color: rgba(0, 0, 0, 0.7);
+  cursor: default;
+}
+
+.vot-sort__link--active:hover {
+
+}
+
+
+
+
+@media (min-width: 40rem) {    
+
+  .vot-sort {
+    width: calc(50% - 3.2rem);
+  }
+}

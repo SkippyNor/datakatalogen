@@ -30,7 +30,7 @@ function VegobjekttypeListeGroup ({vegobjekttyper, id, isSortedByName}) {
                 {vegobjekttyper.map(vegobjekttype => {
                     return (
                         <li key={vegobjekttype.id} className="vot-list__group-listitem">
-                            <Link to={'/' + vegobjekttype.id} className="vot-list__link">
+                            <Link to={'/' + vegobjekttype.id + '-' + vegobjekttype.navn} className="vot-list__link">
                                 <span className="vot-list__name">{vegobjekttype.navn} </span>
                                 <span className="vot-list__id">{vegobjekttype.id}</span>
                             </Link>

@@ -6,13 +6,17 @@
 @import 'et-details.css';
 @import 'footer.css';
 @import 'header.css';
+@import 'layout.css';
 @import 'rt-details.css';
 @import 'rt-section.css';
+@import 'search.css';
 @import 'tv-details.css';
 @import 'tv-list.css';
+@import 'vot-actions.css';
+@import 'vot-header.css';
 @import 'vot-info.css';
 @import 'vot-list.css';
-@import 'vot-header.css';
-@import 'vot-actions.css';
+@import 'vot-sort.css';
+
 
 @import 'animations.css';

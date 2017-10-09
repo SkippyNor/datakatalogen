@@ -7,7 +7,7 @@ function RelasjonstypeDetails ({relasjonstype}) {
         <div className="rt-details">
 
             <p className="rt-details__description">
-                <Link to={'/' + relasjonstype.type.id} className="rt-details__link">
+                <Link to={'/' + relasjonstype.type.id + '-' + relasjonstype.type.navn} className="rt-details__link">
                     Gå til vegobjekttype
                 </Link>
             </p>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import TillattVerdiDetails from './TillattVerdiDetails';
 
+import { formatQuantity } from './format';
 
 
 class TillattVerdi extends Component {
@@ -52,7 +53,7 @@ class TillattVerdi extends Component {
                                     href={'https://www.vegvesen.no/vegkart/vegkart/#kartlag:geodata/hva:(~(id:' + vegobjekttypeId + ',filter:(~(type_id:' + egenskapstypeId + ',operator:\'*3d,verdi:(~' + tillatt_verdi.id + '))),farge:\'0_0))/hvor:(land:(~\'Norge))'} 
                                     className="tv-list__statistics-link"
                                     target="_blank">
-                                    {this.props.statistics[tillatt_verdi.id]}
+                                    {formatQuantity(this.props.statistics[tillatt_verdi.id])}
                                 </a>
                             </span>
                         )}

@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import queryString from 'query-string';
 
-import Layout from './Layout';
 import Header from './Header';
+
 import Footer from './Footer';
 import VegobjekttypeListe from './VegobjekttypeListe';
 import Vegobjekttype from './Vegobjekttype';
@@ -14,6 +14,7 @@ const API = 'https://www.vegvesen.no/nvdb/api/v2';
 const HEADERS = {
     Accept: 'application/vnd.vegvesen.nvdb-v2+json'
 };
+const REGEX = /([0-9]+)/;
 
 
 class App extends Component {
@@ -56,36 +57,35 @@ class App extends Component {
 
     render() {
 
-        return (
-            <Layout>
+        return [
 
-                <Header />
-                
-                <Switch>
+            <Header key="header" />,
+            
+            <Switch key="main">
 
 
-                    <Route exact path="/" render={({location}) => {
-                        const sort = queryString.parse(location.search).sort;
+                <Route exact path="/" render={({location, history}) => {
+                    const sort = queryString.parse(location.search).sort;
 
-                        return <VegobjekttypeListe vegobjekttyper={this.state.vegobjekttyper} sort={sort} />;
-                    }}/>
+                    return <VegobjekttypeListe history={history} vegobjekttyper={this.state.vegobjekttyper} sort={sort} />;
+                }}/>
 
-                    <Route path="/:id" render={({match}) => {
-                        const id = match.params.id;
+                <Route path="/:id" render={({match, history}) => {
 
-                        if (!this.state[id]) {
-                            this.fetchVegobjekttype(id); 
-                        }
+                    const id = REGEX.exec(match.params.id)[1];
 
-                        return <Vegobjekttype match={match} vegobjekttype={this.state[id]} />;
-                    }}/>
+                    if (!this.state[id]) {
+                        this.fetchVegobjekttype(id); 
+                    }
 
-                </Switch>
+                    return <Vegobjekttype history={history} id={id} vegobjekttyper={this.state.vegobjekttyper} vegobjekttype={this.state[id]} />;
+                }}/>
 
-                <Footer />
+            </Switch>,
 
-            </Layout>
-        );
+            <Footer key="footer" />
+
+        ];
     }
 }
 

@@ -25,7 +25,17 @@
 .vot-header__guidance {
 }
 
-.vot-header__statistics {
+.vot-header__statistics-dl {
+  display: flex;
+  font-size: 1.8rem;
+  margin: 2.4rem 0 0 0;
+}
+
+.vot-header__statistics-dt {
+  margin: 0 1.2rem 0 0;
+}
+
+.vot-header__statistics-dd {
 }
 
 .vot-header__statistics-link {

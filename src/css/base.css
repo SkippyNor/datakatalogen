@@ -100,3 +100,7 @@ dd {
   margin: 0;
   padding: 0;
 }
+
+strong {
+  font-weight: 700;
+}

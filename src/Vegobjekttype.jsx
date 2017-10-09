@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 import Relasjonstype from './Relasjonstype';
 import Egenskapstype from './Egenskapstype';
+import Search from './Search';
+
+
+import { formatQuantity } from './format';
 
 
 const API = 'https://www.vegvesen.no/nvdb/api/v2';
@@ -42,7 +46,7 @@ class Vegobjekttype extends Component {
 
             Promise.all(tillatte_verdier.map(tillatt_verdi => {
 
-                const url = API + '/vegobjekter/' + vegobjekttype.id + '/statistikk?egenskap="' + egenskapstype.id + '=' + tillatt_verdi.id + '"';
+                const url = API + '/vegobjekter/' + vegobjekttype.id + '/statistikk?egenskap=%22' + egenskapstype.id + '=' + tillatt_verdi.id + '%22';
 
                 return fetch(url, HEADERS)
                     .then(response => {
@@ -58,7 +62,7 @@ class Vegobjekttype extends Component {
             }))
             .then(() => {
 
-                const url = API + '/vegobjekter/' + vegobjekttype.id + '/statistikk?egenskap="' + egenskapstype.id + '!=null"';
+                const url = API + '/vegobjekter/' + vegobjekttype.id + '/statistikk?egenskap=%22' + egenskapstype.id + '!=null%22';
 
                 fetch(url, HEADERS)
                     .then(response => {
@@ -83,7 +87,7 @@ class Vegobjekttype extends Component {
 
     componentDidMount() {
 
-        const url = API + '/vegobjekter/' + this.props.match.params.id + '/statistikk';
+        const url = API + '/vegobjekter/' + this.props.id + '/statistikk';
 
         fetch(url, HEADERS)
             .then(response => {
@@ -98,13 +102,24 @@ class Vegobjekttype extends Component {
                 console.error(error);
             });
 
-        window.scrollTo(0, 0)
+
+        window.scrollTo(0, 0);
+    }
+
+    componentDidUpdate(nextProps) {
+        if (nextProps.id !== this.props.id) {
+            window.scrollTo(0, 0);   
+        }
     }
 
 
     render() {
 
         const vegobjekttype = this.props.vegobjekttype;
+
+        if (vegobjekttype.navn) {
+            document.title = vegobjekttype.navn + ' (' + vegobjekttype.id + ') fra Nasjonal vegdatabank Datakatalog';
+        }
 
         let hasForeldre = false;
         if (vegobjekttype.relasjonstyper && vegobjekttype.relasjonstyper.foreldre.length > 0) {
@@ -134,8 +149,16 @@ class Vegobjekttype extends Component {
 
         return [
 
-            <section key="xcxasdfcd">
-                <p><Link to="/">Se alle vegobjekttyper</Link></p>
+            <section className="layout__search-container" key="layout__search-container">
+                <Search vegobjekttyper={this.props.vegobjekttyper} history={this.props.history} />
+
+                <p className="layout__all-vot">
+                    <Link to="/" className="layout__all-vot-link">
+                        <span className="layout__all-vot-link-text">
+                            Se alle vegobjekttyper
+                        </span>
+                    </Link>
+                </p>
             </section>,
 
             <header className="vot-header" key="vot-header">
@@ -151,13 +174,17 @@ class Vegobjekttype extends Component {
                         {vegobjekttype.veiledning}
                     </p>
                 )}
-                <p className="vot-header__statistics">
-                    Antall vegobjekter: 
-                    <a
-                        href={'https://www.vegvesen.no/vegkart/vegkart/#kartlag:geodata/hva:(~(id:' + vegobjekttype.id + ',filter:(~),farge:\'0_0))/hvor:(land:(~\'Norge))'} 
-                        className="vot-header__statistics-link"
-                        target="_blank"> {this.state.total}</a>
-                </p>
+                <dl className="vot-header__statistics-dl">
+                    <dt className="vot-header__statistics-dt">
+                        Antall vegobjekter
+                    </dt>
+                    <dd className="vot-header__statistics-dd">
+                        <a
+                            href={'https://www.vegvesen.no/vegkart/vegkart/#kartlag:geodata/hva:(~(id:' + vegobjekttype.id + ',filter:(~),farge:\'0_0))/hvor:(land:(~\'Norge))'} 
+                            className="vot-header__statistics-link"
+                            target="_blank"> {formatQuantity(this.state.total)}</a>
+                    </dd>
+                </dl>
             </header>,
 
 
@@ -242,6 +269,8 @@ class Vegobjekttype extends Component {
                         </section>
 
                     )} 
+
+                    
 
                     <section className="vot-info">
                         <h3 className="vot-info__title">Mer informasjon</h3>
