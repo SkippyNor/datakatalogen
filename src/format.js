@@ -1,5 +1,5 @@
 export function formatQuantity (number) {
-    if (number) {
+    if (number !== undefined) {
         return number.toLocaleString();
     }
 }
