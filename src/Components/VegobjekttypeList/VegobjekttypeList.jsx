@@ -52,7 +52,11 @@ function VegobjekttypeList ({vegobjekttyper, history, sort = 'navn'}) {
     return [
 
         <section className="layout__search-container" key="layout__search-container">
-            <Search vegobjekttyper={vegobjekttyper} history={history}/>
+
+            <Search 
+                vegobjekttyper={vegobjekttyper} 
+                history={history} 
+            />
 
             <section key="xcx" className="vot-sort">
                 <p className="vot-sort__label">
@@ -78,9 +82,15 @@ function VegobjekttypeList ({vegobjekttyper, history, sort = 'navn'}) {
 
         </section>,
 
-        <section key="vot-list" className="vot-list">
+        <section key="vot-list" className={isSortedByName ? 'vot-list' : 'vot-list vot-list--bynumber'}>
             {Object.keys(groups).map(groupId => (
-                <VegobjekttypeListGroup key={groupId} vegobjekttyper={groups[groupId]} id={groupId} isSortedByName={isSortedByName} />
+
+                <VegobjekttypeListGroup 
+                    key={groupId} 
+                    vegobjekttyper={groups[groupId]} 
+                    id={groupId} 
+                    isSortedByName={isSortedByName} 
+                />
             ))}
         </section>
     ];

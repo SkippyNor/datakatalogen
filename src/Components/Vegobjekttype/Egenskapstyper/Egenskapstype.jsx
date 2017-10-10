@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import EgenskapstypeDetails from './EgenskapstypeDetails';
 import TillattVerdi from './TillattVerdi';
 
-import { formatQuantity } from '../../services/format';
-
+import { formatQuantity } from '../../../services/format';
+import { getVegkartLink } from '../../../services/vegkart';
 
 
 class Egenskapstype extends Component {
@@ -60,7 +60,7 @@ class Egenskapstype extends Component {
                         {statistics && (
                             <span className="et-section__statistics">
                                 <a 
-                                    href={'https://www.vegvesen.no/vegkart/vegkart/#kartlag:geodata/hva:(~(id:' + vegobjekttypeId + ',filter:(~(type_id:' + egenskapstype.id + ',operator:\'*21*3d,verdi:null)),farge:\'0_0))/hvor:(land:(~\'Norge))'} 
+                                    href={getVegkartLink(vegobjekttypeId, egenskapstype.id)}
                                     className="et-section__statistics-link"
                                     target="_blank">
                                     {formatQuantity(statistics.sum)}

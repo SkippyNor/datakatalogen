@@ -1,5 +1,6 @@
 
 const API = 'https://www.vegvesen.no/nvdb/api/v2';
+
 const HEADERS = {
     Accept: 'application/vnd.vegvesen.nvdb-v2+json'
 };

@@ -26,6 +26,12 @@
   display: block;
 }
 
+.vot-list--bynumber .vot-list__link {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
 .vot-list__link:hover {
   color: rgba(0, 0, 0, 1);
 }
@@ -36,4 +42,8 @@
 
 .vot-list__id {
   opacity: 0.5;
+}
+
+.vot-list--bynumber .vot-list__id {
+  margin-right: 0.8rem;
 }

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import TillattVerdiDetails from './TillattVerdiDetails';
 
-import { formatQuantity } from '../../services/format';
+import { formatQuantity } from '../../../services/format';
+import { getVegkartLink } from '../../../services/vegkart';
 
 
 class TillattVerdi extends Component {
@@ -50,7 +51,7 @@ class TillattVerdi extends Component {
                         {this.props.statistics && (
                             <span className="tv-list__statistics">
                                 <a 
-                                    href={'https://www.vegvesen.no/vegkart/vegkart/#kartlag:geodata/hva:(~(id:' + vegobjekttypeId + ',filter:(~(type_id:' + egenskapstypeId + ',operator:\'*3d,verdi:(~' + tillatt_verdi.id + '))),farge:\'0_0))/hvor:(land:(~\'Norge))'} 
+                                    href={getVegkartLink(vegobjekttypeId, egenskapstypeId, tillatt_verdi.id)}
                                     className="tv-list__statistics-link"
                                     target="_blank">
                                     {formatQuantity(this.props.statistics[tillatt_verdi.id])}

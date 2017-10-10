@@ -29,6 +29,22 @@
 
 
 
+.layout__columns {
+   max-width: 73.6rem; 
+}
+
+.layout__column1 {
+  max-width: 33.6rem;
+}
+
+.layout__column2 {
+  max-width: 33.6rem;
+}
+
+
+
+
+
 @media (min-width: 40rem) {    
   .layout__search-container {
     align-items: center;
@@ -39,6 +55,17 @@
   .layout__all-vot {
     width: calc(50% - 3.2rem);
   }
+
+  .layout__columns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .layout__column1,
+  .layout__column2 {
+    width: calc(50% - 3.2rem);
+  }
+
 }
 
 
